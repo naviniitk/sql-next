@@ -20,7 +20,7 @@ const CustomerTable = ({customers}: {customers: Customer[]}) => {
         {customers.map((item, index) => (
           <tr className="h-fit" key={index}>
             {headers.map((header) => (
-              <td className="border-2 border-cyan-950 p-3"  key={header}>{item[header]}</td>
+              <td className="border-2 border-cyan-950 p-3"  key={header}>{item[header as keyof Customer]}</td>
             ))}
           </tr>
         ))}
