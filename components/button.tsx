@@ -1,6 +1,12 @@
-import { Strings } from "@/constants";
-
-const Button = ({ disabled }: { disabled: boolean }) => {
+const Button = ({
+  disabled = false,
+  name,
+  handleClick,
+}: {
+  disabled?: boolean;
+  name: string;
+  handleClick?: () => void;
+}) => {
   return (
     <button
       type="submit"
@@ -8,8 +14,9 @@ const Button = ({ disabled }: { disabled: boolean }) => {
         disabled ? "bg-gray-300" : "bg-red-400"
       } rounded w-24 h-12 self-center flex items-center justify-center`}
       disabled={disabled}
+      {...(handleClick && { onClick: handleClick })}
     >
-      {disabled ? <div className="loader"></div> : Strings.SUBMIT}
+      {disabled ? <div className="loader"></div> : name}
     </button>
   );
 };

@@ -36,6 +36,11 @@ export default function Home() {
     startTransition(() => fetchQueryData());
   };
 
+  const handleReset = () => {
+    setQuery("");
+    setData([]);
+  };
+
   return (
     <main className="flex h-screen flex-col items-center lg:px-24 md:px-16 sm:px-8 p-8">
       <h1 className="text-center text-gray-700">{Strings.SUBMIT_QUERIES}</h1>
@@ -50,8 +55,12 @@ export default function Home() {
           disabled={isPending}
         />
 
-        <Button disabled={isPending} />
+        <div className="flex justify-between">
+          <Button disabled={isPending} name={Strings.SUBMIT} />
+          <Button name={Strings.RESET} handleClick={handleReset} />
+        </div>
       </form>
+
       {data.length ? (
         <div className="border-2 rounded border-cyan-950 max-w-full flex-grow overflow-scroll">
           <CustomerTable customers={data} />

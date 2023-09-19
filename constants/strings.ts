@@ -1,5 +1,6 @@
 export const Strings = {
   SUBMIT: "Submit",
+  RESET: "Reset Queries",
   APP_TITLE: "SQL Query",
   APP_DESCRIPTION: "Write sql queries to search the database",
   ONLY_SELECT_QUERIES_ALLOWED: "Only SELECT queries are allowed",
