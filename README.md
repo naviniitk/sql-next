@@ -1,8 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Query SQL from Frontend
+
+A simple Nextjs app which recieves SQL query as input and show the data on client.
+The queries are restricted to be only `SELECT` so that no modification of data can happen from queries.
 
 ## Getting Started
 
 First, run the development server:
+
+Ensure Node version to be greater than 16.x
+
+Run 
+```bash
+npm install
+```
+
+then run,
 
 ```bash
 npm run dev
@@ -18,17 +30,22 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+This project is built using below technologies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ - [Nextjs](https://nextjs.org/) for client facing
+ - [pg](https://www.npmjs.com/package/pg), Library to connect and query the database.
+ - [Supabase](https://supabase.com/), Platform for hosting the SQL databse.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Performance
 
-## Deploy on Vercel
+Performance tested via chrome devtools and it gives the following result
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+First Time Check:
+![Page Load](/public/page-load-time.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To optimise the above time I had looked at the insights in chrome, it was suggesting to optimise the importing of few libraries, I removed node_modules and removed an extra dependency, then running again gave slightly better results but not sure if this is significant as this is a very small website.
+
+Next Few Times Check:
+![Page Load](/public/page-load-time-2.png)
