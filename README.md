@@ -43,9 +43,11 @@ This project is built using below technologies
 Performance tested via chrome devtools and it gives the following result
 
 First Time Check:
+
 ![Page Load](/public/page-load-time.png)
 
 To optimise the above time I had looked at the insights in chrome, it was suggesting to optimise the importing of few libraries, I removed node_modules and removed an extra dependency, then running again gave slightly better results but not sure if this is significant as this is a very small website.
 
 Next Few Times Check:
+
 ![Page Load](/public/page-load-time-2.png)
